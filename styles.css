@@ -1,0 +1,226 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Unbounded', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Estilos del menú */
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    right: 5%;
+    top: 7%;
+    font-weight: 500;
+    position: relative; /* Asegura que esté por encima del pseudo-elemento */
+    z-index: 10;
+}
+
+.menu ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu li {
+    margin-left: 50px; 
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem; /* Ajusta el tamaño base */
+    display: inline-block; /* Permite que transform funcione correctamente */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu li a:hover {
+    color: rgb(98, 131, 223); /* Cambia el color */
+    transform: scale(1.4); /* Aumenta el tamaño del texto en un 20% */
+}
+
+/* Botón de menú para móviles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px;
+}
+
+header {
+    position: relative; /* Asegurar que el pseudo-elemento se posicione correctamente */
+    width: 100%;
+    height: 100vh;
+    background-image: url('imagenes/cielo_b.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Ajusta la opacidad aquí */
+    z-index: 1;
+}
+
+
+/* Hero section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.intro-text {
+    z-index: 1;
+    color: white;
+}
+
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    text-transform: none;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+
+/* Sobre mí */
+.about {
+    padding: 50px;
+    text-align: center;
+
+    position: relative; /* Asegurar que los elementos hijos usen posiciones relativas */
+    overflow: hidden; /* Evita que el canvas se salga */
+}
+
+.about canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para que no interfiera con los clics */
+    z-index: 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    text-align: justify;
+    position: relative; /* Asegura que el texto esté sobre el canvas */
+    z-index: 1;
+}
+
+.about-image {
+    width: 50vw;
+    max-width: 60%;
+    height: auto;
+    border-radius: 20%;
+}
+
+.about-text {
+    margin-left: 5px;
+    color: #abaed6;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #e0e0e0;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .menu {
+        position: absolute;
+        flex-direction: column;
+        align-items: flex-end;
+        right: 10px;
+        top: 10px;
+        z-index: 1000;
+    }
+
+    .menu ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        top: 80px;
+        right: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu li {
+        margin: 10px 0;
+        text-align: right;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-image {
+        width: 70vw;
+        max-width: none;
+        margin-bottom: 20px;
+    }
+}
