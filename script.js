@@ -79,3 +79,72 @@ window.onload = function () {
 document.getElementById('scrollBtn').addEventListener('click', function () {
     document.querySelector('.about').scrollIntoView({ behavior: 'smooth' });
 });
+
+
+
+/////////////////////////////CONTACTO/////////////////////////////////////////
+// Manejo del formulario de contacto
+document.querySelector('.contact-form').addEventListener('submit', function (e) {
+    e.preventDefault(); 
+
+    const nombre = document.querySelector('input[name="nombre"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const mensaje = document.querySelector('textarea[name="mensaje"]').value;
+
+    if (nombre && email && mensaje) {
+        alert(`Gracias por tu mensaje, ${nombre}. Me pondré en contacto contigo pronto.`);
+        this.reset();
+    } else {
+        alert('Por favor, completa todos los campos.');
+    }
+});
+
+// Partículas de fondo
+window.onload = function () {
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = [];
+    const particleCount = 100;
+
+    function Particle() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+    }
+
+    Particle.prototype.update = function () {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    };
+
+    Particle.prototype.draw = function () {
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    };
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+        requestAnimationFrame(animateParticles);
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+    animateParticles();
+};

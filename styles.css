@@ -224,3 +224,119 @@ p {
         margin-bottom: 20px;
     }
 }
+
+
+
+/* CONTACTO */
+/* Sección de contacto con efecto de partículas */
+.contacto {
+    position: relative;
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #1a1a1a;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Lienzo de partículas */
+#particleCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Contenedor del formulario */
+.contacto-content {
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Título */
+.contacto h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Estilo de los campos del formulario */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    font-size: 1rem;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: white;
+}
+
+/* Botón de envío */
+.contact-form button {
+    width: 100%;
+    padding: 15px;
+    background: rgb(98, 131, 223);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: rgb(78, 111, 203);
+}
+
+/* Redes sociales */
+.redes-sociales {
+    margin-top: 30px;
+}
+
+.redes-sociales a {
+    display: inline-block;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.redes-sociales a img {
+    width: 40px;
+    height: 40px;
+}
+
+.redes-sociales a:hover {
+    transform: scale(1.2);
+}

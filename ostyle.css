@@ -1,0 +1,132 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Unbounded', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* Barra de navegación más baja */
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    margin-top: 2%; /* Espaciado para que no quede arriba */
+    margin-right: 4%;
+    font-weight: 500;
+}
+
+.menu ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu li {
+    margin-left: 50px; 
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem; /* Ajusta el tamaño base */
+    display: inline-block; /* Permite que transform funcione correctamente */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu li a:hover {
+    color: rgb(98, 131, 223); /* Cambia el color */
+    transform: scale(1.4); /* Aumenta el tamaño del texto en un 20% */
+}
+
+/* Botón de menú para móviles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px;
+}
+
+/* Sección de Obras */
+.obras {
+    position: relative;
+    padding: 50px;
+    z-index: 1;
+}
+
+.titulo {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Contenedor con imágenes más grandes */
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos imágenes por fila */
+    gap: 40px; /* Más espacio entre imágenes */
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Estilo de cada obra */
+.obra {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.obra img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Nueva animación al pasar el cursor */
+.obra:hover {
+    transform: translateY(-10px); /* La imagen se eleva */
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2); /* Sombra suave */
+}
+
+.obra:hover img {
+    transform: scale(1.05); /* Aumento ligero de tamaño */
+}
+
+.obra p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: rgb(98, 131, 223);
+}
+
+/* Fondo con partículas */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Responsive: En pantallas pequeñas, una sola imagen por fila */
+@media screen and (max-width: 768px) {
+    .contenedor {
+        grid-template-columns: 1fr; /* Una sola imagen por fila */
+    }
+}

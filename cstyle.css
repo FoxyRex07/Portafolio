@@ -1,0 +1,156 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Unbounded', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* Barra de navegación más baja */
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    margin-top: 2%; /* Espaciado para que no quede arriba */
+    margin-right: 4%;
+    font-weight: 500;
+}
+
+.menu ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu li {
+    margin-left: 50px; 
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem; /* Ajusta el tamaño base */
+    display: inline-block; /* Permite que transform funcione correctamente */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu li a:hover {
+    color: rgb(98, 131, 223); /* Cambia el color */
+    transform: scale(1.4); /* Aumenta el tamaño del texto en un 20% */
+}
+
+/* Botón de menú para móviles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px;
+}
+/* Sección de contacto */
+.contact {
+    position: relative;
+    padding: 50px;
+    z-index: 1;
+}
+
+.contact h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Diseño del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1); /* Fondo con transparencia */
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+/* Diseño de los inputs */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Botón con animación */
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgb(98, 131, 223);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: rgb(70, 100, 200);
+    transform: scale(1.05);
+}
+
+/* Redes sociales con imágenes */
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.social-links img {
+    width: 70px;
+    height: 70px;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+/* Canvas de partículas */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
