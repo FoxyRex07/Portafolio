@@ -1,0 +1,178 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Unbounded', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* Barra de navegación */
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    margin-top: 2%;
+    margin-right: 4%;
+    font-weight: 500;
+}
+
+.menu ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu li {
+    margin-left: 50px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu li a:hover {
+    color: rgb(98, 131, 223);
+    transform: scale(1.4);
+}
+
+/* Estilo para el contenedor del encabezado de la galería */
+.gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinea el enlace a la izquierda */
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Asegura que el título "Fotos" se centre */
+.titulo {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+}
+
+/* Estilo para el enlace de volver */
+.back-link {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+/* Cambiar el color del enlace cuando el usuario pasa el cursor sobre él */
+.back-link:hover {
+    color: rgb(98, 131, 223);
+}
+
+
+/* Sección de galería */
+.gallery {
+    padding: 50px;
+}
+
+.titulo {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de la galería */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Estilo de cada elemento de la galería */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover */
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+
+/* Fondo con partículas */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Responsive: En pantallas pequeñas, una sola imagen por fila */
+@media screen and (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Estilo del Modal */
+.modal {
+    display: none; /* El modal está oculto por defecto */
+    position: fixed;
+    z-index: 1; /* Asegura que se muestre por encima del contenido */
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#caption {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}

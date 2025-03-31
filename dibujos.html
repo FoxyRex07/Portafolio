@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibujo - Jesus Cuadros</title>
+    <link rel="stylesheet" href="dstyles.css">
+    <link rel="icon" href="imagenes/boton.png" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="menu">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#about">Sobre mí</a></li>
+            <li><a href="obras.html">Obras</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section class="gallery">
+        <div class="gallery-header">
+            <a href="obras.html" class="back-link">← Volver a las Obras</a>
+            <h1 class="titulo">Dibujos</h1>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="imagenes_dibujo/figuras.jpg" alt="Foto 1">
+            </div>
+            <div class="gallery-item">
+                <img src="imagenes_dibujo/flor.jpg" alt="Fotografía 2">
+            </div>
+            <div class="gallery-item">
+                <img src="imagenes_dibujo/ondas.jpg" alt="Fotografía 3">
+            </div>
+            <div class="gallery-item">
+                <img src="imagenes_dibujo/triangulo.jpg" alt="Fotografía 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <canvas id="particles-canvas"></canvas>
+
+    <script src="dscript.js"></script>
+</body>
+
+</html>
