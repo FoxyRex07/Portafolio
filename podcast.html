@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalle de Obra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Boldonse&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pstyles.css">
+  <link rel="icon" href="imagenes/boton.png" type="image/x-icon" />
+</head>
+<body>
+  <nav class="menu">
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="index.html#about">Sobre mí</a></li>
+      <li><a href="obras.html">Obras</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="gallery-header">
+    <a href="obras.html" class="back-link">← Volver a las Obras</a>
+    <h1 class="titulo">Podcast</h1>
+  </section>
+
+  <section class="obra-section">
+    <div class="obra-img">
+      <img src="imagenes/miniatura.jpg" alt="Imagen de la obra" class="clickable-img">
+    </div>
+    <div class="obra-info">
+      <h2><a href="https://drive.google.com/file/d/14O-oDaO7-I8Zvw5eK-qxBe4tj-49Fyh2/view?usp=sharing" target="_blank" rel="noopener noreferrer"class="obrat">Espectaculo, Memoria e Imagen</a></h2>
+      <h3 class="tipo">VideoPodcast</h3>
+      <p class="integ">Ana Jimena Gil Perez, Andres Ariel Rubio Lavin, Jesús Alfredo Cuadros Ramos</p>
+      <p class="desc">¿Qué pasa cuando un videojuego no solo te entretiene, sino que te obliga a mirar lo que duele... En este episodio, nos sumergimos en The Last of Us Part II para explorar cómo la imagen, la memoria y el dolor se entrelazan en una historia que incomoda, rompe y resiste. Junto a Debord, Didi-Huberman y Karen Cordero, cuestionamos el espectáculo, recorremos paisajes marcados por el trauma y descubrimos esas pequeñas luces que como luciérnagas aparecen en medio de la oscuridad. Este no es solo un análisis del juego: es una invitación a mirar distinto, a demorarse, y a sentir con lo que queda cuando todo parece perdido. Si alguna vez pensaste que los videojuegos no podían ser arte… este episodio es para ti.</p>
+    </div>
+  </section>
+
+  <section class="obra-section">
+    <div class="obra-img">
+      <img src="imagenes/versatil8.png" alt="Imagen de la obra" class="clickable-img">
+    </div>
+    <div class="obra-info">
+      <h2><a href="https://www.youtube.com/watch?v=Ydkm5g-LTBs&t=6s" target="_blank" rel="noopener noreferrer"class="obrat">Versatil Episodio 8 Una Oda al Amor Eterno</a></h2>
+      <h3 class="tipo">Podcast</h3>
+      <p class="integ">Jesús Alfredo Cuadros Ramos</p>
+      <p class="desc">¿Qué sucede cuando una canción se convierte en un susurro de despedida, en un puente entre el dolor y la esperanza? En este episodio de Versátil, nos adentramos en la historia detrás de “Arrullo de Estrellas”, una de las canciones más íntimas de Zoé. Descubrimos cómo León Larregui transforma la pérdida de su madre en una obra profundamente conmovedora, cargada de amor, fe y redención. A través de una narrativa sensible y pausada, exploramos cómo el arte nace del duelo, cómo la música se convierte en arrullo, y cómo una letra puede abrazar a miles. Si alguna vez has amado a alguien hasta el alma, este episodio es para ti.</p>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close" id="closeModal">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+  </div>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <script src="pscript.js"></script>
+</body>
+</html>
