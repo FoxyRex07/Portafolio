@@ -61,3 +61,15 @@ document.addEventListener("DOMContentLoaded", function () {
     initParticles();
     animateParticles();
 });
+
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_wxwa4xt", "template_cag931l", this)
+        .then(() => {
+            document.getElementById("form-status").innerText = "✅ Mensaje enviado con éxito!";
+            document.getElementById("contact-form").reset();
+        }, (error) => {
+            document.getElementById("form-status").innerText = "❌ Error al enviar: " + error.text;
+        });
+});

@@ -1,91 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Carrusel general para múltiples instancias
-  document.querySelectorAll(".carrusel").forEach((carousel, carouselIndex) => {
-    const slides = carousel.querySelectorAll(".slide");
-    const prev = carousel.querySelector(".prev");
-    const next = carousel.querySelector(".next");
-    const indicators = carousel.querySelector(".indicators");
-    let current = 0;
+  // Carruseles
+  const carousels = document.querySelectorAll('.carrusel');
+  let modal = document.getElementById("imageModal");
+  let modalImg = document.getElementById("modalImage");
+  let closeModal = document.getElementById("closeModal");
+  let modalPrev = document.querySelector(".modal-prev");
+  let modalNext = document.querySelector(".modal-next");
 
-    // Crear indicadores
-    slides.forEach((_, i) => {
-      const dot = document.createElement("span");
-      if (i === 0) dot.classList.add("active-indicator");
-      indicators.appendChild(dot);
+  let currentImgs = []; // imágenes del carrusel activo
+  let currentIndex = 0;
+
+  carousels.forEach(carrusel => {
+    const imagenes = carrusel.querySelector('.imagenes');
+    const imgs = imagenes.querySelectorAll('img');
+    let index = 0;
+
+    carrusel.querySelector('.prev').addEventListener('click', () => {
+      index = (index - 1 + imgs.length) % imgs.length;
+      imagenes.style.transform = `translateX(-${index * 100}%)`;
     });
 
-    const dots = indicators.querySelectorAll("span");
+    carrusel.querySelector('.next').addEventListener('click', () => {
+      index = (index + 1) % imgs.length;
+      imagenes.style.transform = `translateX(-${index * 100}%)`;
+    });
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-        dots[i].classList.toggle("active-indicator", i === index);
+    // Abrir modal al hacer clic en una imagen
+    imgs.forEach((img, i) => {
+      img.addEventListener('click', () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        currentImgs = Array.from(imgs);
+        currentIndex = i;
       });
-      current = index;
-    }
-
-    prev.addEventListener("click", () => {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
-    });
-
-    next.addEventListener("click", () => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    });
-
-    // Autoplay
-    //setInterval(() => {
-    //  current = (current + 1) % slides.length;
-    //  showSlide(current);
-    //}, 8000); // cada 5 segundos
-
-    // Click en indicadores
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => showSlide(i));
-    });
-
-    showSlide(current);
-  });
-
-  // Modal para imágenes
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImage");
-  const closeModal = document.getElementById("closeModal");
-
-document.querySelectorAll(".clickable-img").forEach(img => {
-  img.addEventListener("click", () => {
-    modal.style.display = "block";
-    modalImg.src = img.src;
-
-    // Oculta todas las flechas del carrusel mientras el modal está activo
-    document.querySelectorAll(".prev, .next").forEach(el => {
-      el.style.display = "none";
     });
   });
-});
 
-
-closeModal.onclick = () => {
-  modal.style.display = "none";
-
-  // Muestra nuevamente las flechas del carrusel
-  document.querySelectorAll(".prev, .next").forEach(el => {
-    el.style.display = "";
-  });
-};
-window.onclick = e => {
-  if (e.target === modal) {
+  // Cerrar modal
+  closeModal.addEventListener("click", () => {
     modal.style.display = "none";
+  });
 
-    // Muestra nuevamente las flechas del carrusel
-    document.querySelectorAll(".prev, .next").forEach(el => {
-      el.style.display = "";
-    });
-  }
-};
+  // Navegar dentro del modal
+  modalPrev.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + currentImgs.length) % currentImgs.length;
+    modalImg.src = currentImgs[currentIndex].src;
+  });
 
-  // Partículas (se mantiene igual)
+  modalNext.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % currentImgs.length;
+    modalImg.src = currentImgs[currentIndex].src;
+  });
+
+  // Cerrar modal clicando fuera de la imagen
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  // Partículas de fondo (como ya tenías)
   const canvas = document.getElementById("particles-canvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;

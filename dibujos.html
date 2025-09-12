@@ -51,10 +51,20 @@
     <!-- Modal -->
     <div id="imageModal" class="modal">
         <span class="close" id="closeModal">&times;</span>
-        <img class="modal-content" id="modalImage">
+
+        <div class="modal-container">
+            <!-- Flechas -->
+            <span class="prev" id="prevBtn">&#10094;</span>
+            
+            <!-- Imagen -->
+            <img class="modal-content" id="modalImage">
+
+            <span class="next" id="nextBtn">&#10095;</span>
+        </div>
+
         <div id="caption"></div>
     </div>
-
+    
     <canvas id="particles-canvas"></canvas>
 
     <script src="dscript.js"></script>

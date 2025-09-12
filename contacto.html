@@ -45,19 +45,29 @@
 
             <button type="submit">Enviar</button>
         </form>
-
-        <div class="social-links">
-            <a href="https://www.facebook.com/jesusalfredo.cuadrosramos/?locale=es_LA" target="_blank"><img src="imagenes/facebook.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/chu_cho.3/" target="_blank"><img src="imagenes/instagram.png" alt="Instagram"></a>
-            <a href="https://www.tiktok.com/@chucho0722" target="_blank"><img src="imagenes/tik-tok.png" alt="TikTok"></a>
-            <a href="https://x.com/FoxyRex07" target="_blank"><img src="imagenes/twitter.png" alt="Twitter"></a>
-            <a href="https://github.com/FoxyRex07" target="_blank"><img src="imagenes/github.png" alt="GitHub"></a>
-            <a href="https://www.linkedin.com/in/jesús-alfredo-cuadros-ramos-26005933a/" target="_blank"><img src="imagenes/linkedin.png" alt="Linkedin"></a>
-        </div>
+        <p id="form-status"></p>
     </section>
+
+    <div class="social-links">
+        <a href="https://www.facebook.com/jesusalfredo.cuadrosramos/?locale=es_LA" target="_blank"><img src="imagenes/facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/chu_cho.3/" target="_blank"><img src="imagenes/instagram.png" alt="Instagram"></a>
+        <a href="https://www.tiktok.com/@chucho0722" target="_blank"><img src="imagenes/tik-tok.png" alt="TikTok"></a>
+        <a href="https://x.com/FoxyRex07" target="_blank"><img src="imagenes/twitter.png" alt="Twitter"></a>
+        <a href="https://github.com/FoxyRex07" target="_blank"><img src="imagenes/github.png" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/jesús-alfredo-cuadros-ramos-26005933a/" target="_blank"><img src="imagenes/linkedin.png" alt="Linkedin"></a>
+    </div>
 
     <canvas id="particles-canvas"></canvas>
 
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("j0dysKyK7Gfd_Duye"); // Public key
+        })();
+    </script>
+
+    <!-- Script personalizado -->
     <script src="cscript.js"></script>
 </body>
 </html>

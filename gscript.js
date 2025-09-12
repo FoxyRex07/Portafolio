@@ -65,31 +65,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /////////////MODAL////////////////////
 
-// Obtener el modal
 var modal = document.getElementById("imageModal");
-
-// Obtener las imágenes de la galería
 var images = document.querySelectorAll(".gallery-item img");
-
-// Obtener el elemento <img> dentro del modal
 var modalImg = document.getElementById("modalImage");
+var prevBtn = document.getElementById("prevBtn");
+var nextBtn = document.getElementById("nextBtn");
 
-// Función para abrir el modal con la imagen clickeada
-images.forEach(image => {
+let currentIndex = 0;
+
+// Abrir modal con la imagen seleccionada
+function openModal(index) {
+    modal.style.display = "block";
+    modalImg.src = images[index].src;
+    currentIndex = index;
+    updateButtons();
+}
+
+// Actualizar flechas según posición
+function updateButtons() {
+    prevBtn.style.display = currentIndex === 0 ? "none" : "block";
+    nextBtn.style.display = currentIndex === images.length - 1 ? "none" : "block";
+}
+
+// Click en imágenes para abrir modal
+images.forEach((image, index) => {
     image.onclick = function() {
-        modal.style.display = "block";
-        modalImg.src = this.src; // Establece la imagen clickeada en el modal
+        openModal(index);
     }
 });
 
-// Función para cerrar el modal al hacer clic en la "X"
+// Cerrar modal
 document.getElementById("closeModal").onclick = function() {
     modal.style.display = "none";
 }
 
-// Función para cerrar el modal al hacer clic fuera de la imagen (zona oscura)
+// Cerrar modal clickeando fuera
 window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
+}
+
+// Navegar con flechas
+prevBtn.onclick = function() {
+    if (currentIndex > 0) openModal(currentIndex - 1);
+}
+nextBtn.onclick = function() {
+    if (currentIndex < images.length - 1) openModal(currentIndex + 1);
 }
