@@ -130,11 +130,17 @@ p {
 
 /* Sobre mí */
 .about {
-    padding: 50px;
+    position: relative;
     text-align: center;
-
-    position: relative; /* Asegurar que los elementos hijos usen posiciones relativas */
-    overflow: hidden; /* Evita que el canvas se salga */
+    overflow: hidden;
+    color: #fff;
+    padding-top: 80px; /* aumenta el espacio desde el top */
+    max-width: 95%;
+    margin: 80px auto; /* centra y agrega espacio */
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
 
 .about canvas {
@@ -234,3 +240,203 @@ p {
 }
 
 
+/* ====== Novedades / Carrusel ====== */
+.novedades {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+  padding-top: 80px; /* aumenta el espacio desde el top */
+  max-width: 95%;
+  margin: 80px auto; /* centra y agrega espacio */
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 18px;
+  padding: 40px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+.novedades-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  display: block;
+}
+
+.novedades h2 {
+  position: relative;
+  z-index: 2;
+  font-family: "Boldonse", system-ui;
+  font-size: 2.4rem;
+  margin-bottom: 18px;
+}
+
+/* Pega esto en tu CSS o añádelo con una <style> */
+#novedades a { 
+  pointer-events: auto 
+  !important; position: relative; 
+  z-index: 2; display:block; 
+}
+
+#novedades .overlay, #novedades .card-overlay { 
+  pointer-events: none 
+  !important; z-index: 1; 
+}
+
+/* contenedor con overflow oculto para viewport */
+.carousel-container {
+  position: relative;
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s cubic-bezier(.22,.9,.3,1);
+  will-change: transform;
+  padding: 10px 0;
+  align-items: flex-start;
+}
+
+/* Cada ítem ocupa 100% del viewport */
+.carousel-item {
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  display: block;
+  object-fit: cover;
+  cursor: pointer;
+  max-height: 450px;
+  border-radius: 10px;
+}
+
+.carousel-item .card-body {
+  padding: 12px;
+  color: #ddd;
+}
+
+.carousel-item h3 {
+  margin: 6px 0;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.carousel-item p {
+  margin: 6px 0;
+  font-size: 0.92rem;
+  color: #bdbdbd;
+}
+
+.carousel-item a {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #62a3ff;
+  text-decoration: none;
+}
+
+/* Flechas */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.prev { left: -10px; }
+.next { right: -10px; }
+
+.prev[disabled], .next[disabled] {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* adaptaciones responsive */
+@media (max-width: 900px) {
+  .carousel-item { min-width: 240px; max-width: 300px; }
+  .prev { left: -6px; } .next { right: -6px; }
+}
+
+@media (max-width: 560px) {
+  .carousel-item { min-width: 200px; max-width: 260px; }
+  .novedades h2 { font-size: 1.6rem; }
+}
+
+#particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* queda detrás de todo */
+  pointer-events: none; /* no bloquea clics */
+}
+
+/* ==== Footer ==== */
+footer {
+  margin-top: 60px;
+  padding: 25px 15px;
+  background: rgba(0,0,0,0.75);
+  text-align: center;
+  color: #ccc;
+}
+
+footer .footer-text p {
+  margin: 6px 0;
+  font-size: 170%;
+  line-height: 1.4;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px; /* controla solo con esto */
+  padding: 0;
+  margin: 0;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;   /* quitamos espacio interno */
+  margin: 0;    /* quitamos espacio externo */
+}
+
+.footer-socials a img {
+  margin-top: 50px;
+  width: 120px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.footer-socials a img:hover {
+  transform: scale(1.2);
+}

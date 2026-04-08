@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Epibioma en Ruinas",
+    "description": "Explora mi más reciente proyecto.",
+    "image": "imagenes/Epi.jpeg",
+    "link": "colaborativa.html#ultima"
+  },
+  {
+    "title": "Último Podcast",
+    "description": "Un episodio especial sobre creatividad y tecnología.",
+    "image": "imagenes/miniatura.jpg",
+    "link": "podcast.html#ultima"
+  },
+  {
+    "title": "Últimas Fotografias",
+    "description": "Nueva colección de fotografías experimentales.",
+    "image": "img/fotos1.jpg",
+    "link": "fotos.html#galeria1"
+  },
+  {
+    "title": "Última Pagina Web",
+    "description": "Nueva colección de fotografías experimentales.",
+    "image": "img/fotos1.jpg",
+    "link": "fotos.html#galeria1"
+  },
+  {
+    "title": "Último video editado",
+    "description": "Nueva colección de fotografías experimentales.",
+    "image": "img/fotos1.jpg",
+    "link": "fotos.html#galeria1"
+  }
+]
