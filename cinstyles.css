@@ -319,35 +319,35 @@ footer {
 
 footer .footer-text p {
   margin: 6px 0;
-  font-size: 170%;
+  font-size: clamp(14px, 2vw, 22px); /* 🔥 texto responsivo */
   line-height: 1.4;
 }
 
+/* CONTENEDOR */
 .footer-socials {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 70px; /* controla solo con esto */
-  padding: 0;
-  margin: 0;
+  gap: clamp(10px, 4vw, 40px); /* 🔥 espacio adaptable */
+  margin-top: 30px;
+  flex-wrap: wrap; /* 🔥 permite que bajen en móvil */
 }
 
+/* LINKS */
 .footer-socials a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;   /* quitamos espacio interno */
-  margin: 0;    /* quitamos espacio externo */
+  display: inline-block;
+  transition: transform 0.3s;
 }
 
-.footer-socials a img {
-  margin-top: 50px;
-  width: 120px;
+/* ICONOS */
+.footer-socials img {
+  width: clamp(40px, 8vw, 110px); /* 🔥 clave */
+  height: auto;
   object-fit: contain;
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
-.footer-socials a img:hover {
+/* HOVER */
+.footer-socials a:hover {
   transform: scale(1.2);
 }

@@ -246,9 +246,8 @@ p {
   text-align: center;
   overflow: hidden;
   color: #fff;
-  padding-top: 80px; /* aumenta el espacio desde el top */
   max-width: 95%;
-  margin: 80px auto; /* centra y agrega espacio */
+  margin: 80px auto;
   background: rgba(0, 0, 0, 0.55);
   border-radius: 18px;
   padding: 40px;
@@ -263,30 +262,31 @@ p {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-  display: block;
 }
 
 .novedades h2 {
   position: relative;
   z-index: 2;
   font-family: "Boldonse", system-ui;
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem); /* 🔥 responsivo */
   margin-bottom: 18px;
 }
 
-/* Pega esto en tu CSS o añádelo con una <style> */
+/* FIX para overlays */
 #novedades a { 
-  pointer-events: auto 
-  !important; position: relative; 
-  z-index: 2; display:block; 
+  pointer-events: auto !important; 
+  position: relative; 
+  z-index: 2; 
+  display: block; 
 }
 
-#novedades .overlay, #novedades .card-overlay { 
-  pointer-events: none 
-  !important; z-index: 1; 
+#novedades .overlay, 
+#novedades .card-overlay { 
+  pointer-events: none !important; 
+  z-index: 1; 
 }
 
-/* contenedor con overflow oculto para viewport */
+/* CONTENEDOR */
 .carousel-container {
   position: relative;
   width: 92%;
@@ -299,31 +299,34 @@ p {
   overflow: hidden;
 }
 
+/* CARRUSEL */
 .carousel {
   display: flex;
-  gap: 20px;
   transition: transform 0.45s cubic-bezier(.22,.9,.3,1);
   will-change: transform;
   padding: 10px 0;
-  align-items: flex-start;
 }
 
-/* Cada ítem ocupa 100% del viewport */
+/* 🔥 CLAVE: siempre 1 por pantalla */
 .carousel-item {
-  min-width: 100%;
+  flex: 0 0 100%;
   max-width: 100%;
   border-radius: 14px;
   overflow: hidden;
 }
 
+/* IMÁGENES */
 .carousel-item img {
   display: block;
+  width: 100%;              /* 🔥 importante */
+  height: auto;
+  max-height: 450px;
   object-fit: cover;
   cursor: pointer;
-  max-height: 450px;
   border-radius: 10px;
 }
 
+/* TEXTO */
 .carousel-item .card-body {
   padding: 12px;
   color: #ddd;
@@ -331,13 +334,13 @@ p {
 
 .carousel-item h3 {
   margin: 6px 0;
-  font-size: 1.05rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: #fff;
 }
 
 .carousel-item p {
   margin: 6px 0;
-  font-size: 0.92rem;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
   color: #bdbdbd;
 }
 
@@ -349,7 +352,7 @@ p {
   text-decoration: none;
 }
 
-/* Flechas */
+/* FLECHAS */
 .prev, .next {
   position: absolute;
   top: 50%;
@@ -368,23 +371,34 @@ p {
   font-size: 20px;
 }
 
-.prev { left: -10px; }
-.next { right: -10px; }
+/* 🔥 mejor posicionadas */
+.prev { left: 10px; }
+.next { right: 10px; }
 
 .prev[disabled], .next[disabled] {
   opacity: 0.35;
   cursor: default;
 }
 
-/* adaptaciones responsive */
-@media (max-width: 900px) {
-  .carousel-item { min-width: 240px; max-width: 300px; }
-  .prev { left: -6px; } .next { right: -6px; }
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .novedades {
+    padding: 25px;
+  }
+
+  .carousel-item img {
+    max-height: 300px; /* 🔥 más cómodo en móvil */
+  }
 }
 
-@media (max-width: 560px) {
-  .carousel-item { min-width: 200px; max-width: 260px; }
-  .novedades h2 { font-size: 1.6rem; }
+@media (max-width: 480px) {
+  .novedades {
+    padding: 20px;
+  }
+
+  .carousel-item img {
+    max-height: 220px;
+  }
 }
 
 #particles-bg {
@@ -408,35 +422,35 @@ footer {
 
 footer .footer-text p {
   margin: 6px 0;
-  font-size: 170%;
+  font-size: clamp(14px, 2vw, 22px); /* 🔥 texto responsivo */
   line-height: 1.4;
 }
 
+/* CONTENEDOR */
 .footer-socials {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 70px; /* controla solo con esto */
-  padding: 0;
-  margin: 0;
+  gap: clamp(10px, 4vw, 40px); /* 🔥 espacio adaptable */
+  margin-top: 30px;
+  flex-wrap: wrap; /* 🔥 permite que bajen en móvil */
 }
 
+/* LINKS */
 .footer-socials a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;   /* quitamos espacio interno */
-  margin: 0;    /* quitamos espacio externo */
+  display: inline-block;
+  transition: transform 0.3s;
 }
 
-.footer-socials a img {
-  margin-top: 50px;
-  width: 120px;
+/* ICONOS */
+.footer-socials img {
+  width: clamp(40px, 8vw, 110px); /* 🔥 clave */
+  height: auto;
   object-fit: contain;
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
-.footer-socials a img:hover {
+/* HOVER */
+.footer-socials a:hover {
   transform: scale(1.2);
 }
